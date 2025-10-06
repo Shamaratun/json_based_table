@@ -1,8 +1,17 @@
-// "use client";
-
-// import { useEffect, useState } from "react";
-// import { Patientt } from "./type";
-
+// 'use client';
+// import { useState, useEffect } from "react";
+// import { useRouter } from "next/navigation";
+// import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+// import { Card, CardContent } from "@/components/ui/card";
+// import { getPatients } from "./getPatients";
+// import SurgicalInfo from "../surgical/surgicalInfo";
+// import MedicalInfo from "../medical/medicalInfo";
+// import Investigation from "../investigation/investigation";
+// import PatientTabs from "../patientTab/patientTab";
+// import { Patient } from "./type";
+// import PatientDetails from "./patientBasicCard";
+// import { ButtonDemo } from "./buttonDemo";
+// import PatientBasicCard from "./patientBasicCard";
 
 // export default function PatientProfilePage({ id }: { id: number }) {
 // const [patient, setPatient] = useState<Patientt>();
@@ -127,6 +136,3 @@
 //   );
 // }
 
-// function fetchPatientById(id: number) {
-//     throw new Error("Function not implemented.");
-// }

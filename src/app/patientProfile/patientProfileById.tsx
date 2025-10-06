@@ -1,25 +1,9 @@
 'use client';
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
-import { medicalInfoDummy } from "../medical/medicalInfoDummy";
-import { investigationsDummy } from "../investigation/investigationDummy";
-import { surgicalInfoDummy } from "../surgical/surgicalInfoDummy ";
-
-import {
-  Share2,
-  FileDown,
-  Edit3,
-  Stethoscope,
-  Clock,
-  StickyNote,
-} from "lucide-react";
-
 import { getPatients } from "./getPatients";
-import { Patientt } from "./type";
-import PatientBasicCard from "./patientBasicCard";
 import SurgicalInfo from "../surgical/surgicalInfo";
 import MedicalInfo from "../medical/medicalInfo";
 import Investigation from "../investigation/investigation";
@@ -28,7 +12,7 @@ import { Patient } from "./type";
 import PatientDetails from "./patientBasicCard";
 
 
-
+//THIS IS FOR FIXED ID
 
 export default function PatientProfileById() {
   const [openSurgicalInfo, setOpenSurgicalInfo] = useState(false);
