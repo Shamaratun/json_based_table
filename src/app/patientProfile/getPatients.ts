@@ -1,6 +1,7 @@
 "use server";
 
 
+//THIS IS FOR FIXED ID
 
 export async function getPatients(patient_id: number) {
   const res = await fetch(
