@@ -48,7 +48,7 @@ export default function GetPatientWithId({ patient_id }: PatientProfileProps) {
 
   return (
     <div className="p-4 sm:p-6  mx-auto space-y-4 bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen">
-      {/* Patient info */}
+     
       <PatientDetails patient={selectedPatient} />
 <div>
         <div className="w-full p-4 msm:p-6">
@@ -66,10 +66,10 @@ export default function GetPatientWithId({ patient_id }: PatientProfileProps) {
                       Surgical Info
                     </button>
                     {openSurgicalInfo && (
-                      // <div className="bg-white p-3 sm:p-4 rounded-xl shadow mt-2 overflow-x-auto">
+                     
                         <SurgicalInfo />
 
-                      // </div>
+                     
                       )}
                     <button
 
@@ -79,10 +79,10 @@ export default function GetPatientWithId({ patient_id }: PatientProfileProps) {
                       Medical Info
                     </button>
                     {openMedicalInfo && (
-                      <div className="bg-white p-3 sm:p-4 rounded-xl shadow mt-2 overflow-x-auto">
+                      
                         <MedicalInfo />
 
-                      </div>
+                     
                     )}
 
                     <button
@@ -91,17 +91,13 @@ export default function GetPatientWithId({ patient_id }: PatientProfileProps) {
                     >
                       Investigation
                     </button>
-                    {openInvestigationInfo && (
-                      <div className="bg-white p-3 sm:p-4 rounded-xl shadow mt-2 overflow-x-auto">
-                        <Investigation />
-                      </div>
+                    {openInvestigationInfo && (                      
+                        <Investigation />                      
                     )}
                   </div>
                 </CardContent>
               </Card>
-            </TabsContent>
-
-            {/* Recent Visits */}
+            </TabsContent>         
             <TabsContent value="recent-visits">
               <Card className="mt-4">
                 <CardContent>
@@ -124,7 +120,7 @@ export default function GetPatientWithId({ patient_id }: PatientProfileProps) {
             </TabsContent>
           </Tabs>
 
-          {/* File Upload */}
+        
           <div className="mt-6 mb-4">
             <label className="bg-blue-500 text-white px-4 py-2 rounded-lg w-full sm:w-auto cursor-pointer hover:bg-blue-600 transition block text-center sm:inline-block">
               <input
