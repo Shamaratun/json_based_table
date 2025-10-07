@@ -8,8 +8,8 @@ export default function SurgicalInfo() {
   <table className="min-w-full border border-gray-200">
     <thead className="bg-blue-100">
       <tr>
-        <th className="text-left p-2 border-b">Surgery</th>
         <th className="text-left p-2 border-b">Date</th>
+        <th className="text-left p-2 border-b">Procedure</th>        
         <th className="text-left p-2 border-b">Surgeon</th>
         <th className="text-left p-2 border-b">Hospital</th>
         <th className="text-left p-2 border-b">Notes</th>
@@ -18,8 +18,8 @@ export default function SurgicalInfo() {
     <tbody>
       {surgicalInfoDummy.surgeries.map((surgery) => (
         <tr key={surgery.surgeryId} className="hover:bg-gray-50">
-          <td className="p-2 border-b">{surgery.surgeryName}</td>
           <td className="p-2 border-b">{surgery.date}</td>
+          <td className="p-2 border-b">{surgery.surgeryName}</td>          
           <td className="p-2 border-b">{surgery.surgeon}</td>
           <td className="p-2 border-b">{surgery.hospital}</td>
           <td className="p-2 border-b">{surgery.notes}</td>

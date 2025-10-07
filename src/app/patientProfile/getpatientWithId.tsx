@@ -10,12 +10,9 @@ import SurgicalInfo from "../surgical/surgicalInfo";
 import MedicalInfo from "../medical/medicalInfo";
 import Investigation from "../investigation/investigation";
 import PatientTabs from "../patientTab/patientTab";
-
 interface PatientProfileProps {
   patient_id: number;
-
 }
-
 
 export default function GetPatientWithId({ patient_id }: PatientProfileProps) {
   const [selectedPatient, setSelectedPatient] = useState<Patient | null>(null);
@@ -50,7 +47,7 @@ export default function GetPatientWithId({ patient_id }: PatientProfileProps) {
   if (!selectedPatient) return <p className="text-center text-gray-500">No patient found</p>;
 
   return (
-    <div className="p-4 sm:p-6 max-w-5xl mx-auto space-y-4 bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen">
+    <div className="p-4 sm:p-6  mx-auto space-y-4 bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen">
       {/* Patient info */}
       <PatientDetails patient={selectedPatient} />
 <div>
@@ -69,10 +66,11 @@ export default function GetPatientWithId({ patient_id }: PatientProfileProps) {
                       Surgical Info
                     </button>
                     {openSurgicalInfo && (
-                      <div className="bg-white p-3 sm:p-4 rounded-xl shadow mt-2 overflow-x-auto">
+                      // <div className="bg-white p-3 sm:p-4 rounded-xl shadow mt-2 overflow-x-auto">
                         <SurgicalInfo />
 
-                      </div>)}
+                      // </div>
+                      )}
                     <button
 
                       className="w-50  text-left px-3 py-2 rounded-md bg-gray-100 hover:bg-gray-200 font-medium"
