@@ -1,4 +1,4 @@
-import GetPatientWithId from "../../patientProfile/getpatientWithId";
+import GetPatientWithId from "../getpatientWithId";
 
 interface PageProps {
   params: { id: string };

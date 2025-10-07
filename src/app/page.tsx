@@ -1,4 +1,5 @@
-import GetPatientWithIdPage from "./patientProfile/page";
+import GetPatientWithIdPage from "./manage-patient/page";
+
 export default function Home() {
   return (
     <div>  

@@ -6,10 +6,10 @@ import { AdmissionItem, Patient } from "./type";
 import PatientDetails from "./patientBasicCard";
 import { Tabs, TabsContent } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
-import SurgicalInfo from "../surgical/surgicalInfo";
-import MedicalInfo from "../medical/medicalInfo";
-import Investigation from "../investigation/investigation";
-import PatientTabs from "../patientTab/patientTab";
+import SurgicalInfo from "../../surgical/surgicalInfo";
+import MedicalInfo from "../../medical/medicalInfo";
+import Investigation from "../../investigation/investigation";
+import PatientTabs from "../../patientTab/patientTab";
 interface PatientProfileProps {
   patient_id: number;
 }
@@ -19,7 +19,7 @@ export default function GetPatientWithId({ patient_id }: PatientProfileProps) {
   const [admissions, setAdmissions] = useState<AdmissionItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
- const [openSurgicalInfo, setOpenSurgicalInfo] = useState(false);
+  const [openSurgicalInfo, setOpenSurgicalInfo] = useState(false);
   const [openMedicalInfo, setOpenMedicalInfo] = useState(false);
   const [openInvestigationInfo, setOpenInvestigationInfo] = useState(false);
   useEffect(() => {
@@ -48,9 +48,9 @@ export default function GetPatientWithId({ patient_id }: PatientProfileProps) {
 
   return (
     <div className="p-4 sm:p-6  mx-auto space-y-4 bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen">
-      {/* Patient info */}
+   
       <PatientDetails patient={selectedPatient} />
-<div>
+      <div>
         <div className="w-full p-4 msm:p-6">
           <Tabs defaultValue="medical-history" className="w-full">
             <PatientTabs />
@@ -66,11 +66,10 @@ export default function GetPatientWithId({ patient_id }: PatientProfileProps) {
                       Surgical Info
                     </button>
                     {openSurgicalInfo && (
-                      // <div className="bg-white p-3 sm:p-4 rounded-xl shadow mt-2 overflow-x-auto">
-                        <SurgicalInfo />
+                      <SurgicalInfo />
 
-                      // </div>
-                      )}
+                    
+                    )}
                     <button
 
                       className="w-50  text-left px-3 py-2 rounded-md bg-gray-100 hover:bg-gray-200 font-medium"

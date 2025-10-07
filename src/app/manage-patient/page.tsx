@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 
-import GetPatientWithId from "./getpatientWithId";
+import GetPatientWithId  from "./patient-profile/getpatientWithId";
 
 export default function GetPatientWithIdPage() {
   const [inputId, setInputId] = useState("");
