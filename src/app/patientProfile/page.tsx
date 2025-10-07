@@ -1,16 +1,38 @@
 
+"use client";
 
-import PatientDetails from "./patientBasicCard";
-import PatientProfile from "./patientProfile";
-import PatientProfileById from "./patientProfileById";
+import { useState } from "react";
 
-export default function Page() {
+import GetPatientWithId from "./getpatientWithId";
+
+export default function GetPatientWithIdPage() {
+  const [inputId, setInputId] = useState("");
+  const [patientId, setPatientId] = useState<number | null>(null);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!inputId) return;
+    setPatientId(Number(inputId));
+  };
+
   return (
+    <div style={{ padding: "1.5rem" }}>
+      <h1>Search Patient Profile</h1>
 
-  <>
-  <PatientProfileById />
-  <PatientDetails patient={undefined} />
-  </>
+      <form onSubmit={handleSubmit} style={{ marginBottom: "1rem" }}>
+        <input
+          type="number"
+          value={inputId}
+          onChange={(e) => setInputId(e.target.value)}
+          placeholder="Enter Patient ID"
+          style={{ padding: "0.5rem", marginRight: "0.5rem" }}
+        />
+        <button type="submit" style={{ padding: "0.5rem 1rem" }}>
+          Search
+        </button>
+      </form>
 
-    );
+      {patientId && <GetPatientWithId patient_id={patientId} />}
+    </div>
+  );
 }
