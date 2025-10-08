@@ -1,6 +1,6 @@
 "use client";
 
-import { TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { TabsList, TabsTrigger } from "@/app/ui/tabs";
 import { Stethoscope, Clock, StickyNote } from "lucide-react";
 
 export default function PatientTabs() {

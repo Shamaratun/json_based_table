@@ -1,4 +1,4 @@
-import { surgicalInfoDummy } from "../app/dummyData/surgicalInfoDummy ";
+import { surgicalInfoDummy } from "../../../dummyData/surgicalInfoDummy ";
 
 export default function SurgicalComponent() {
   return (

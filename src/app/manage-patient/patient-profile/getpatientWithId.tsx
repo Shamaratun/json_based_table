@@ -4,13 +4,14 @@ import { useEffect, useState } from "react";
 import { getPatientsDynamicId } from "./getPatientDynamicId";
 import { AdmissionItem, Patient } from "./type";
 import PatientDetails from "./patientBasicCard";
-import { Tabs, TabsContent } from "@/components/ui/tabs";
-import { Card, CardContent } from "@/components/ui/card";
-import PatientTabs from "../../patientTab/patientTab";
-import InvestigationComponent from "@/components/investigationComponent";
-import MedicalComponent from "../../../components/medicalComponent";
-import SurgicalComponent from "../../../components/surgicalComponent";
-import RecentVisitComponent from "@/components/recentVisitComponent";
+import { Tabs, TabsContent } from "@/app/ui/tabs";
+import { Card, CardContent } from "@/app/ui/card";
+import PatientTabs from "../../reusableTabs/patientTab";
+import InvestigationComponent from "@/app/manage-patient/patient-profile/component/investigationComponent";
+import MedicalComponent from "./component/medicalComponent";
+import SurgicalComponent from "./component/surgicalComponent";
+import RecentVisitComponent from "@/app/manage-patient/patient-profile/component/recentVisitComponent";
+import MedicalHistoryTab from "@/app/reusableTabs/medicalHistoryTabs";
 
 
 interface PatientProfileProps {
@@ -57,63 +58,16 @@ export default function GetPatientWithId({ patient_id }: PatientProfileProps) {
         <div className="w-full p-4 msm:p-6">
           <Tabs defaultValue="medical-history" className="w-full">
             <PatientTabs />
-
-            <TabsContent value="medical-history">
-              <Card className="mt-4">
-                <CardContent className="p-4 sm:p-6">
-                  <div className="flex flex-col space-y-2 min-w-full">
-                    <button
-                      className="w-50 text-left px-3 py-2 rounded-md bg-gray-100 hover:bg-gray-200 font-medium"
-                      onClick={() => setOpenSurgicalInfo((prev) => !prev)}
-                    >
-                      Surgical Info
-                    </button>
-                    {openSurgicalInfo && (
-                      <SurgicalComponent />
-
-
-                    )}
-                    <button
-
-                      className="w-50  text-left px-3 py-2 rounded-md bg-gray-100 hover:bg-gray-200 font-medium"
-                      onClick={() => setOpenMedicalInfo((prev) => !prev)}
-                    >
-                      Medical Info
-                    </button>
-                    {openMedicalInfo && (
-                        <MedicalComponent />
-
-                    
-                    )}
-
-                    <button
-                      className="w-50  text-left px-3 py-2 rounded-md bg-gray-100 hover:bg-gray-200 font-medium"
-                      onClick={() => setOpenInvestigationInfo((prev) => !prev)}
-                    >
-                      Investigation
-                    </button>
-                    {openInvestigationInfo && (
-                      
-                      <InvestigationComponent />
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-            </TabsContent>
-
-            {/* Recent Visits */}
+            <MedicalHistoryTab />      
+          
             <TabsContent value="recent-visits">
               <Card className="mt-4">
                 <CardContent>
-                  <RecentVisitComponent />
-                  {/* <p className="text-sm sm:text-base">
-                    Recent visit details will be shown here.
-                  </p> */}
+                  <RecentVisitComponent />                 
                 </CardContent>
               </Card>
             </TabsContent>
-
-            {/* Notes */}
+                      
             <TabsContent value="notes">
               <Card className="mt-4">
                 <CardContent>
@@ -122,7 +76,7 @@ export default function GetPatientWithId({ patient_id }: PatientProfileProps) {
                   </p>
                 </CardContent>
               </Card>
-            </TabsContent>
+            </TabsContent> 
           </Tabs>
 
           {/* File Upload */}
