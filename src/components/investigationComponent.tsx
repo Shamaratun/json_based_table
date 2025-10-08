@@ -1,9 +1,10 @@
-import { medicalInfoDummy } from "../medical/medicalInfoDummy";
-import { investigationsDummy } from "./investigationDummy";
+import { investigationsDummy } from "@/app/dummyData/investigationDummy";
 
 
 
-export default function PatientMedicalSection() {
+
+
+export default function InvestigationComponent() {
   return (
     <div className="space-y-6">
 

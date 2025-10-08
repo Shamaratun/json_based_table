@@ -1,6 +1,6 @@
-import { surgicalInfoDummy } from "./surgicalInfoDummy ";
+import { surgicalInfoDummy } from "../app/dummyData/surgicalInfoDummy ";
 
-export default function SurgicalInfo() {
+export default function SurgicalComponent() {
   return (
 <div className="bg-white p-4 rounded-xl shadow mb-4 overflow-x-auto">
   <h2 className="font-semibold text-blue-600 mb-4 text-lg">Surgical Info</h2>

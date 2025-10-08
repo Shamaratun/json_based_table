@@ -6,10 +6,13 @@ import { AdmissionItem, Patient } from "./type";
 import PatientDetails from "./patientBasicCard";
 import { Tabs, TabsContent } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
-import SurgicalInfo from "../../surgical/surgicalInfo";
-import MedicalInfo from "../../medical/medicalInfo";
-import Investigation from "../../investigation/investigation";
 import PatientTabs from "../../patientTab/patientTab";
+import InvestigationComponent from "@/components/investigationComponent";
+import MedicalComponent from "../../../components/medicalComponent";
+import SurgicalComponent from "../../../components/surgicalComponent";
+import RecentVisitComponent from "@/components/recentVisitComponent";
+
+
 interface PatientProfileProps {
   patient_id: number;
 }
@@ -19,9 +22,9 @@ export default function GetPatientWithId({ patient_id }: PatientProfileProps) {
   const [admissions, setAdmissions] = useState<AdmissionItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [openSurgicalInfo, setOpenSurgicalInfo] = useState(false);
-  const [openMedicalInfo, setOpenMedicalInfo] = useState(false);
-  const [openInvestigationInfo, setOpenInvestigationInfo] = useState(false);
+  const [openSurgicalInfo, setOpenSurgicalInfo] = useState(true);
+  const [openMedicalInfo, setOpenMedicalInfo] = useState(true);
+  const [openInvestigationInfo, setOpenInvestigationInfo] = useState(true);
   useEffect(() => {
     async function loadData() {
       setLoading(true);
@@ -48,7 +51,7 @@ export default function GetPatientWithId({ patient_id }: PatientProfileProps) {
 
   return (
     <div className="p-4 sm:p-6  mx-auto space-y-4 bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen">
-   
+
       <PatientDetails patient={selectedPatient} />
       <div>
         <div className="w-full p-4 msm:p-6">
@@ -66,9 +69,9 @@ export default function GetPatientWithId({ patient_id }: PatientProfileProps) {
                       Surgical Info
                     </button>
                     {openSurgicalInfo && (
-                      <SurgicalInfo />
+                      <SurgicalComponent />
 
-                    
+
                     )}
                     <button
 
@@ -78,10 +81,9 @@ export default function GetPatientWithId({ patient_id }: PatientProfileProps) {
                       Medical Info
                     </button>
                     {openMedicalInfo && (
-                      <div className="bg-white p-3 sm:p-4 rounded-xl shadow mt-2 overflow-x-auto">
-                        <MedicalInfo />
+                        <MedicalComponent />
 
-                      </div>
+                    
                     )}
 
                     <button
@@ -91,9 +93,8 @@ export default function GetPatientWithId({ patient_id }: PatientProfileProps) {
                       Investigation
                     </button>
                     {openInvestigationInfo && (
-                      <div className="bg-white p-3 sm:p-4 rounded-xl shadow mt-2 overflow-x-auto">
-                        <Investigation />
-                      </div>
+                      
+                      <InvestigationComponent />
                     )}
                   </div>
                 </CardContent>
@@ -104,9 +105,10 @@ export default function GetPatientWithId({ patient_id }: PatientProfileProps) {
             <TabsContent value="recent-visits">
               <Card className="mt-4">
                 <CardContent>
-                  <p className="text-sm sm:text-base">
+                  <RecentVisitComponent />
+                  {/* <p className="text-sm sm:text-base">
                     Recent visit details will be shown here.
-                  </p>
+                  </p> */}
                 </CardContent>
               </Card>
             </TabsContent>

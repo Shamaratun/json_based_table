@@ -1,6 +1,6 @@
-import { medicalInfoDummy } from "./medicalInfoDummy";
+import { medicalInfoDummy } from "../app/dummyData/medicalInfoDummy";
 
-export default function MedicalInfo() {
+export default function MedicalComponent() {
   return (
   <div className="bg-white p-4 rounded-xl shadow mb-4 overflow-x-auto">
   <h2 className="font-semibold text-green-600 mb-4 text-lg">Medical Information</h2>

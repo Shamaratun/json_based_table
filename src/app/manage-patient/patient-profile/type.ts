@@ -103,3 +103,12 @@ export interface AdmittedPatient {
   remarks: string;
   
 }
+export interface Visit {
+  id: number;
+  date: string;
+  time: string;
+  department: string;
+  doctor: string;
+  reason: string;
+  status: string;
+}
