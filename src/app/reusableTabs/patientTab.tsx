@@ -18,24 +18,24 @@ interface ReusableTabsProps {
 
 function ReusableTabs({ tabs }: ReusableTabsProps) {
   return (
-    <div className="overflow-x-auto">
-      <TabsList className="flex gap-2 sm:gap-4 w-max min-w-full">
-        {tabs.map((tab) => {
-          const Icon = tab.icon;
-          return (
-            <TabsTrigger
-              key={tab.value}
-              value={tab.value}
-              className={`flex items-center gap-2 px-4 py-2 text-xl  text-gray-800 rounded-lg transition whitespace-nowrap
-                ${tab.bgColor || "bg-gray-100"} 
-                ${tab.hoverColor || "hover:bg-gray-200"}`}
-            >
-              <Icon size={18} /> {tab.label}
-            </TabsTrigger>
-          );
-        })}
-      </TabsList>
-    </div>
+    <div className="w-full overflow-visible">
+  <TabsList className="grid grid-cols-3 sm:grid-cols-3 gap-2 sm:gap-4 w-full">
+    {tabs.map((tab) => {
+      const Icon = tab.icon;
+      return (
+        <TabsTrigger
+          key={tab.value}
+          value={tab.value}
+          className={`flex items-center gap-2 px-4 py-2 text-sm sm:text-base text-gray-800 rounded-lg  transition
+            ${tab.hoverColor || "hover:bg-gray-200"}`}
+            style={{ minHeight: "50px" }}
+        >
+          <Icon size={20} /> {tab.label}
+        </TabsTrigger>
+      );
+    })}
+  </TabsList>
+</div>
   );
 }
 
