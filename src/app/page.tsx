@@ -19,7 +19,7 @@ export default function GetPatientWithIdPage() {
   return (
     
     <div style={{ padding: "1.5rem" }}>
-      <h2>this is home page</h2>
+      
       <h1>Search Patient Profile</h1>
 
       <form onSubmit={handleSubmit} style={{ marginBottom: "1rem" }}>

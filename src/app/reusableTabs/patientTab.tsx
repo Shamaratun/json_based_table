@@ -1,29 +1,69 @@
 "use client";
 
 import { TabsList, TabsTrigger } from "@/app/ui/tabs";
-import { Stethoscope, Clock, StickyNote } from "lucide-react";
+import { Stethoscope, Clock, StickyNote, LucideIcon } from "lucide-react";
+
+interface TabItem {
+  value: string;
+  label: string;
+  icon: LucideIcon;
+  bgColor?: string;
+  hoverColor?: string;
+}
+
+interface ReusableTabsProps {
+  tabs: TabItem[];
+}
+
+
+function ReusableTabs({ tabs }: ReusableTabsProps) {
+  return (
+    <div className="overflow-x-auto">
+      <TabsList className="flex gap-2 sm:gap-4 w-max min-w-full">
+        {tabs.map((tab) => {
+          const Icon = tab.icon;
+          return (
+            <TabsTrigger
+              key={tab.value}
+              value={tab.value}
+              className={`flex items-center gap-2 px-4 py-2 text-xl  text-gray-800 rounded-lg transition whitespace-nowrap
+                ${tab.bgColor || "bg-gray-100"} 
+                ${tab.hoverColor || "hover:bg-gray-200"}`}
+            >
+              <Icon size={18} /> {tab.label}
+            </TabsTrigger>
+          );
+        })}
+      </TabsList>
+    </div>
+  );
+}
+
 
 export default function PatientTabs() {
-  return (
-    <TabsList className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 w-full">
-      <TabsTrigger
-        value="medical-history"
-        className="flex items-center gap-2 px-4 py-2 text-sm sm:text-base text-gray-800 bg-cyan-100 rounded-lg hover:bg-cyan-200 transition"
-      >
-        <Stethoscope size={18} /> Medical History
-      </TabsTrigger>
-      <TabsTrigger
-        value="recent-visits"
-        className="flex items-center gap-2 px-4 py-2 text-sm sm:text-base text-gray-800 bg-yellow-100 rounded-lg hover:bg-yellow-200 transition"
-      >
-        <Clock size={18} /> Recent Visits
-      </TabsTrigger>
-      <TabsTrigger
-        value="notes"
-        className="flex items-center gap-2 px-4 py-2 text-sm sm:text-base text-gray-800 bg-pink-100 rounded-lg hover:bg-pink-200 transition"
-      >
-        <StickyNote size={18} /> Notes
-      </TabsTrigger>
-    </TabsList>
-  );
+  const tabs: TabItem[] = [
+    {
+      value: "medical-history",
+      label: "Medical History",
+      icon: Stethoscope,
+      bgColor: "bg-cyan-100",
+      hoverColor: "hover:bg-cyan-200",
+    },
+    {
+      value: "recent-visits",
+      label: "Recent Visits",
+      icon: Clock,
+      bgColor: "bg-yellow-100",
+      hoverColor: "hover:bg-yellow-200",
+    },
+    {
+      value: "notes",
+      label: "Notes",
+      icon: StickyNote,
+      bgColor: "bg-pink-100",
+      hoverColor: "hover:bg-pink-200",
+    },
+  ];
+
+  return <ReusableTabs tabs={tabs} />;
 }
