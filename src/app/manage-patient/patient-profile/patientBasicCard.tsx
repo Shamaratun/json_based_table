@@ -1,16 +1,16 @@
 import { AdmissionData, Patient } from "./type";
 
+
 interface PatientDetailsProps {
   patient?: Patient;
-  admissionData?: AdmissionData;
+  admissionData?: AdmissionData | null;
 }
-
 export default function PatientDetails({ patient, admissionData }: PatientDetailsProps) {
   if (!patient) return <p>Loading patient data...</p>;
 
   return (
     <div className="bg-blue-500 text-white p-6 rounded-lg shadow-lg flex space-x-6 items-center">
-      {/* Avatar */}
+      
       <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center text-blue-500 text-5xl font-bold">
         {patient.name.charAt(0)}
       </div>

@@ -54,8 +54,7 @@ export interface Patient {
   patient_name: string;
   age: number;
   gender: string;
-  mobile_number: string;
-             
+  mobile_number: string;             
   address_line_one: string;
   dt: string;
   is_active: number;

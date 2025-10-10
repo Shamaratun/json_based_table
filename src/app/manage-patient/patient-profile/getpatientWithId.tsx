@@ -49,25 +49,28 @@ export default function GetPatientWithId({ patient_id }: PatientProfileProps) {
   if (loading) return <p className="text-center text-gray-500">Loading...</p>;
   if (error) return <p className="text-center text-red-500">{error}</p>;
   if (!selectedPatient) return <p className="text-center text-gray-500">No patient found</p>;
-
+  const latestAdmission = admissions[0]?.admission_data;
   return (
     <div className="p-4 sm:p-6  mx-auto space-y-4 bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen">
 
-      <PatientDetails patient={selectedPatient} />
+      <PatientDetails
+        patient={selectedPatient}
+        admissionData={latestAdmission}
+      />
       <div>
         <div className="w-full p-4 msm:p-6">
           <Tabs defaultValue="medical-history" className="w-full">
             <PatientTabs />
-            <MedicalHistoryTab />      
-          
+            <MedicalHistoryTab />
+
             <TabsContent value="recent-visits">
               <Card className="mt-4">
                 <CardContent>
-                  <RecentVisitComponent />                 
+                  <RecentVisitComponent />
                 </CardContent>
               </Card>
             </TabsContent>
-                      
+
             <TabsContent value="notes">
               <Card className="mt-4">
                 <CardContent>
@@ -76,7 +79,7 @@ export default function GetPatientWithId({ patient_id }: PatientProfileProps) {
                   </p>
                 </CardContent>
               </Card>
-            </TabsContent> 
+            </TabsContent>
           </Tabs>
 
           {/* File Upload */}
