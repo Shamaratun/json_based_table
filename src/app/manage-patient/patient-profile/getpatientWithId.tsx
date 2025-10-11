@@ -51,7 +51,7 @@ export default function GetPatientWithId({ patient_id }: PatientProfileProps) {
   if (!selectedPatient) return <p className="text-center text-gray-500">No patient found</p>;
   const latestAdmission = admissions[0]?.admission_data;
   return (
-    <div className="p-4 sm:p-6  mx-auto space-y-4 bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen">
+    <div className="p-4 w-full sm:p-6 mx-auto space-y-4 bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen">
 
       <PatientDetails
         patient={selectedPatient}
